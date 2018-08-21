@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <p>This program implements Selection Sort algorithm</p>
+    <p>The unsorted array is:</p>
+    <p id = "unsorted"></p>
+    <p>The sorted array is:</p>
+    <p id = "sorted"></p>
+  </body>
+  <script>
+    var array = [100,4,2,3435,66777,2,4332,5,0];
+    var text = "";
+    for(var m = 0; m < array.length; m++){
+      text += array[m] + " ";
+    }
+    $("#unsorted").html(text);
+    for(var i = 0; i < (array.length - 1); i++){
+      var min = i;
+      for(var j = i + 1; j < array.length; j++){
+         if(array[j] < array[min]){
+           min = j;
+         }
+      }
+      if(min != i){
+        var temp = array[i];
+        array[i] = array[min];
+        array[min] = temp;
+      }
+    }
+    var text = "";
+    for(var m = 0; m < array.length; m++){
+      text += array[m] + " ";
+    }
+    $("#sorted").html(text);
+  </script>
+</html>
